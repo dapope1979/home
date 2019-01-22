@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  minecraft-creative:
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      MODE: "creative"
+      SERVER_NAME: "la familia creativa"
+    image: itzg/minecraft-server
+    container_name: minecraft_creative
+    tty: true
+    stdin_open: true
+    restart: always
+    networks:
+      - vatican-bridge
+    volumes:
+    - /well/containers/minecraft-creative:/data
+
+networks:
+  vatican-bridge:
+    external: true

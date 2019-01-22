@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  minecraft-survival:
+    ports:
+      - "25566:25565"
+    environment:
+      EULA: "TRUE"
+      SERVER_NAME: "famille de survivants"
+    image: itzg/minecraft-server
+    container_name: minecraft_survival
+    tty: true
+    stdin_open: true
+    restart: always
+    networks:
+      - vatican-bridge
+    volumes:
+    - /well/containers/minecraft-survival:/data
+
+networks:
+  vatican-bridge:
+    external: true

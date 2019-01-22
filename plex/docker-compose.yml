@@ -1,0 +1,16 @@
+version: '2'
+services:
+  plex:
+    container_name: plex
+    image: plexinc/pms-docker
+    restart: unless-stopped
+    ports:
+      - 32400:32400/tcp
+    environment:
+      - TZ=America/Denver
+      - PLEX_CLAIM=claim-xVwtGgALyFjTxzRVzKL2
+    network_mode: host
+    volumes:
+      - /well/containers/plex/config:/config
+      - /well/containers/plex/transcode:/transcode
+      - /well/media:/data
