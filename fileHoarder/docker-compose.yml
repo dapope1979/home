@@ -1,0 +1,10 @@
+version: '2'
+services:
+  filehoarder:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 2222:3000/tcp
+    network_mode: host
+    volumes:
+      - /well/containers/filehoarder:/usr/src/app/uploads
