@@ -20,3 +20,9 @@ docker network create vatican-bridge
 #minecraft firewall rules
 ufw allow 25565
 ufw allow 25566
+
+#plex
+ufw allow 32400
+
+#filehoarder for plex channel
+ufw allow 2222
