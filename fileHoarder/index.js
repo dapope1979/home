@@ -12,6 +12,10 @@ if (!fs.existsSync(targetDir)){
 
 app.use(fileUpload());
 
+app.get('/', (req, res) => {
+    res.send("hi");
+});
+
 app.post('/', (req, res) => {
     let email = filenamify(req.body.email, {replacement: '_'});
 
