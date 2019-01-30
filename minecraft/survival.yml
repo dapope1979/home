@@ -7,6 +7,7 @@ services:
     environment:
       EULA: "TRUE"
       SERVER_NAME: "famille de survivants"
+      MAX_MEMORY: "3G"
     image: itzg/minecraft-server
     container_name: minecraft_survival
     tty: true
