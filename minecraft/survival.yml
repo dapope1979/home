@@ -8,6 +8,7 @@ services:
       EULA: "TRUE"
       SERVER_NAME: "famille de survivants"
       MAX_MEMORY: "3G"
+      OPS: "programmingpope"
     image: itzg/minecraft-server
     container_name: minecraft_survival
     tty: true
