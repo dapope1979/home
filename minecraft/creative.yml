@@ -9,7 +9,7 @@ services:
       MODE: "creative"      
       SERVER_NAME: "la familia creativa"
       TYPE: "SPIGOT"
-      VERSION: "1.13"
+      VERSION: "1.13.2"
       MOTD: "Now with 100% more VR"
     image: itzg/minecraft-server
     container_name: minecraft_creative
