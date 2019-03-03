@@ -9,6 +9,10 @@ services:
       SERVER_NAME: "famille de survivants"
       MAX_MEMORY: "3G"
       OPS: "programmingpope"
+      TYPE: "SPIGOT"
+      SPIGOT_DOWNLOAD_URL: "https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar"
+      VERSION: "1.13.2"
+      MOTD: "Now with 100% more VR"
     image: itzg/minecraft-server
     container_name: minecraft_survival
     tty: true
