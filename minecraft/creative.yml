@@ -8,6 +8,7 @@ services:
       EULA: "TRUE"
       MODE: "creative"      
       SERVER_NAME: "la familia creativa"
+      OPS: "programmingpope"
       TYPE: "SPIGOT"
       SPIGOT_DOWNLOAD_URL: "https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar"
       VERSION: "1.13.2"
