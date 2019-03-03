@@ -9,6 +9,7 @@ services:
       MODE: "creative"      
       SERVER_NAME: "la familia creativa"
       TYPE: "SPIGOT"
+      SPIGOT_DOWNLOAD_URL: "https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar"
       VERSION: "1.13.2"
       MOTD: "Now with 100% more VR"
     image: itzg/minecraft-server
