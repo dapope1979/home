@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  minecraft-creative:
+    ports:
+      - "25567:25567"
+    environment:
+      EULA: "TRUE"
+      MODE: "creative"      
+      SERVER_NAME: "mods"
+      OPS: "programmingpope"
+      TYPE: "FORGE"
+      FORGEVERSION: "14.23.5.2823"
+      VERSION: "1.12.2""
+    image: itzg/minecraft-server
+    container_name: minecraft_creative
+    tty: true
+    stdin_open: true
+    restart: always
+    networks:
+      - vatican-bridge
+    volumes:
+    - /well/containers/minecraft-creative:/data
+
+networks:
+  vatican-bridge:
+    external: true
