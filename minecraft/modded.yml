@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  minecraft-creative:
+  minecraft-modded:
     ports:
       - "25567:25567"
     environment:
