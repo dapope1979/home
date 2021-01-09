@@ -18,5 +18,4 @@ services:
     tty: true
     volumes:
       - /well/backups:/mnt:z
-      - /well/media:/mnt2:z
-    command: '-s "backups;/mnt;yes;no;no;vatican" -s "media;/mnt2;yes;no;no;vatican" -u "vatican;vatican" -p'
+    command: -s "media;/mnt2;yes;no;no;vatican" -u "vatican;vatican" -p'
