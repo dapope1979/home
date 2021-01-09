@@ -21,3 +21,7 @@ ufw allow 25567
 
 #plex
 ufw allow 32400
+
+#pihole
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
