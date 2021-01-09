@@ -20,7 +20,7 @@ services:
     tty: true
     volumes:
       - ./test:/mnt2:z
-    command: -s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
+    command: '-s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
 
 networks:
   default:
