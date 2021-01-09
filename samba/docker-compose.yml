@@ -19,8 +19,9 @@ services:
     stdin_open: true
     tty: true
     volumes:
+      - /well/media:/mnt1:z
       - /well/backups:/mnt2:z
-    command: '-s "backups;/mnt2;yes;no;yes" -p'
+    command: '-s "backups;/mnt2;yes;no;yes" -s "media;/mnt1;yes;no;yes" -p'
 
 networks:
   default:
