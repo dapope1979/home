@@ -5,6 +5,8 @@ services:
     image: dperson/samba
     environment:
       TZ: 'America/Denver'
+    networks:
+      - default
     ports:
       - "137:137/udp"
       - "138:138/udp"
@@ -18,4 +20,8 @@ services:
     tty: true
     volumes:
       - ./test:/mnt:z
-    command: '-s "media;/mnt2;yes;no;no;vatican" -u "vatican;vatican" -p'
+      - ./test2:/mnt2:z
+    command: '-s "Mount;/mnt" -s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
+
+networks:
+  default:
