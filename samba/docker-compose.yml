@@ -19,7 +19,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /mnt2:/mnt2:z
+      - ./test:/mnt2:z
     command: -s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
 
 networks:
