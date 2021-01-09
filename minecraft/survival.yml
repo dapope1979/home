@@ -6,23 +6,15 @@ services:
       - "25566:25565"
     environment:
       EULA: "TRUE"
-      SERVER_NAME: "famille de survivants"
-      MAX_MEMORY: "3G"
+      SERVER_NAME: "survival"
+      MAX_MEMORY: "4G"
       OPS: "programmingpope"
-      TYPE: "SPIGOT"
-      SPIGOT_DOWNLOAD_URL: "https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar"
-      VERSION: "1.13.2"
-      MOTD: "Now with 100% more VR"
+      VERSION: "1.16.4"
+      MOTD: "yerp"
     image: itzg/minecraft-server
     container_name: minecraft_survival
     tty: true
     stdin_open: true
-    restart: always
-    networks:
-      - vatican-bridge
+    restart: unless-stopped
     volumes:
     - /well/containers/minecraft-survival:/data
-
-networks:
-  vatican-bridge:
-    external: true
