@@ -2,9 +2,6 @@
 
 apt-get update
 
-#ssh
-apt-get install openssh-server -y
-
 #docker
 apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSl https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -24,6 +21,3 @@ ufw allow 25567
 
 #plex
 ufw allow 32400
-
-#filehoarder for plex channel
-ufw allow 2222
