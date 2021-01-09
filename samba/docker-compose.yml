@@ -5,8 +5,6 @@ services:
     image: dperson/samba
     environment:
       TZ: 'America/Denver'
-    networks:
-      - default
     ports:
       - "137:137/udp"
       - "138:138/udp"
@@ -21,7 +19,5 @@ services:
     volumes:
       - /well/media:/mnt1:z
       - /well/backups:/mnt2:z
-    command: '-s "backups;/mnt2;yes;no;yes" -s "media;/mnt1;yes;no;yes" -p'
-
-networks:
-  default:
+      - /well/containers/share:/mnt3:z
+    command: '-s "backups;/mnt2;yes;no;yes" -s "media;/mnt1;yes;no;yes" -s "share;/mnt3;yes;no;yes" -p'
