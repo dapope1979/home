@@ -10,8 +10,8 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     environment:
-      TZ: ${TZ}
-      WEBPASSWORD: 'super-secure-web-password'
+      TZ: 'America/Denver'
+      WEBPASSWORD: ${PIHOLE_PASSWORD}
     # Volumes store your data between container upgrades
     volumes:
       - '/well/containers/pihole/pihole:/etc/pihole/'
