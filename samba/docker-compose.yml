@@ -17,5 +17,5 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /well/backups:/mnt:z
+      - ./test:/mnt:z
     command: '-s "media;/mnt2;yes;no;no;vatican" -u "vatican;vatican" -p'
