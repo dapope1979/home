@@ -22,6 +22,8 @@ ufw allow 25567
 #plex
 ufw allow 32400
 
-#pihole
-sudo systemctl stop systemd-resolved
-sudo systemctl disable systemd-resolved
+#pihole - disable DNS stub listener & use DNS from DHCP
+sudo sed -r -i.orig 's/#?DNSStubListener=yes/DNSStubListener=no/g' /etc/systemd/resolved.conf
+sudo sh -c 'rm /etc/resolv.conf && ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf'
+
+echo "Remember to set $PIHOLE_PASSWORD
