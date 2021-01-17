@@ -9,8 +9,12 @@ services:
     environment:
       - TZ=America/Denver
       - PLEX_CLAIM=claim-xVwtGgALyFjTxzRVzKL2
-    network_mode: host
+    networks:
+      - vatican-bridge
     volumes:
       - /well/containers/plex/config:/config
       - /well/containers/plex/transcode:/transcode
       - /well/media:/data
+networks:
+  vatican-bridge:
+    external: true
