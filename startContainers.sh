@@ -10,4 +10,4 @@ docker-compose -f minecraft/survival.yml up -d
 docker-compose -f plex/docker-compose.yml up -d
 
 # samba for windows shares
-docker-compose -f fileHoarder/docker-compose.yml up -d
+docker-compose -f samba/docker-compose.yml up -d
