@@ -12,6 +12,8 @@ services:
     environment:
       TZ: 'America/Denver'
       WEBPASSWORD: ${PIHOLE_PASSWORD}
+    networks:
+      - vatican-bridge
     # Volumes store your data between container upgrades
     volumes:
       - '/well/containers/pihole/pihole:/etc/pihole/'
@@ -20,3 +22,7 @@ services:
       - 127.0.0.1
       - 1.1.1.1
     restart: unless-stopped
+
+networks:
+  vatican-bridge:
+    external: true
