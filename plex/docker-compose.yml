@@ -15,6 +15,7 @@ services:
       - /well/containers/plex/config:/config
       - /well/containers/plex/transcode:/transcode
       - /well/media:/data
+      
 networks:
   vatican-bridge:
     external: true
