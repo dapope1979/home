@@ -11,11 +11,17 @@ services:
       MAX_MEMORY: "4G"
       OPS: "programmingpope"
       VERSION: "1.16.4"
-      MOTD: "yerp"
+      MOTD: "mooo"
     image: itzg/minecraft-server
     container_name: minecraft_survival
     tty: true
     stdin_open: true
     restart: unless-stopped
+    networks:
+      - vatican-bridge
     volumes:
     - /well/containers/minecraft-survival:/data
+
+networks:
+  vatican-bridge:
+    external: true
