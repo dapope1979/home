@@ -1,9 +1,0 @@
-version: '2'
-services:
-  filehoarder:
-    build: .
-    restart: unless-stopped
-    ports:
-      - 2222:3000/tcp
-    volumes:
-      - /well/containers/filehoarder:/usr/src/app/uploads
