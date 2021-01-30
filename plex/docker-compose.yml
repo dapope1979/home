@@ -6,16 +6,19 @@ services:
     restart: unless-stopped
     ports:
       - 32400:32400/tcp
+      - 3005:3005/tcp
+      - 8324:8324/tcp
+      - 32469:32469/tcp
+      - 1900:1900/udp
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
     environment:
       - TZ=America/Denver
-      - PLEX_CLAIM=claim-xVwtGgALyFjTxzRVzKL2
-    networks:
-      - vatican-bridge
+      - PLEX_CLAIM=claim-nFcHocdz6KAs-eW-nCxB
+      - ADVERTISE_IP=http://192.168.1.16:32400
     volumes:
-      - /well/containers/plex/config:/config
-      - /well/containers/plex/transcode:/transcode
+      - /well/container-data/plex/config:/config
+      - /well/container-data/plex/transcode:/transcode
       - /well/media:/data
-      
-networks:
-  vatican-bridge:
-    external: true
