@@ -16,8 +16,8 @@ services:
       - vatican-bridge
     # Volumes store your data between container upgrades
     volumes:
-      - '/home/vatican/pihole/pihole:/etc/pihole/'
-      - '/home/vatican/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
+      - '/well/container-data/pihole/pihole:/etc/pihole/'
+      - '/well/container-data/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
     dns:
       - 127.0.0.1
       - 1.1.1.1
