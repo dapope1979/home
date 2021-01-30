@@ -1,3 +1,4 @@
+
 version: '2'
 
 services:
@@ -7,8 +8,7 @@ services:
     environment:
       EULA: "TRUE"
       SERVER_NAME: "survival"
-      MEMORY: "2G"
-      MAX_MEMORY: "4G"
+      MAX_MEMORY: "6G"
       OPS: "programmingpope"
       VERSION: "1.16.4"
       MOTD: "mooo"
@@ -17,11 +17,5 @@ services:
     tty: true
     stdin_open: true
     restart: unless-stopped
-    networks:
-      - vatican-bridge
     volumes:
-    - /well/containers/minecraft-survival:/data
-
-networks:
-  vatican-bridge:
-    external: true
+    - /well/minecraft/survival:/data
