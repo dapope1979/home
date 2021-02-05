@@ -3,6 +3,10 @@
 apt-get update
 apt-get upgrade
 
+# Network
+rm /etc/netplan/*
+cp 01-netcfg.yaml /etc/netplan/
+
 sudo snap install docker
 
 #ZFS
