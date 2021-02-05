@@ -11,8 +11,6 @@ services:
       - "443:443/tcp"
     environment:
       TZ: 'America/Denver'
-      WEBPASSWORD: ${PIHOLE_PASSWORD}
-    # Volumes store your data between container upgrades
     volumes:
       - '/well/container-data/pihole/pihole:/etc/pihole/'
       - '/well/container-data/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
