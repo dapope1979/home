@@ -41,7 +41,7 @@ ufw allow 25567
 #plex
 ufw allow 32400
 
-#pihole - disable DNS stub listener & use DNS from DHCP
+#pihole
 ufw allow 80
 ufw allow 443
 
