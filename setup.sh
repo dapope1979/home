@@ -6,6 +6,7 @@ apt-get upgrade
 # Network
 rm /etc/netplan/*
 cp 01-netcfg.yaml /etc/netplan/
+# disable DNS stub listener & use DNS from DHCP (also lets pihole use ports)
 sed -r -i.orig 's/#?DNSStubListener=yes/DNSStubListener=no/g' /etc/systemd/resolved.conf
 sh -c 'rm /etc/resolv.conf && ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf'
 netplan generate
