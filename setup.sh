@@ -5,6 +5,10 @@ apt-get upgrade
 
 sudo snap install docker
 
+#ZFS
+apt install zfsutils-linux
+zpool import -f well
+
 #minecraft firewall rules
 ufw allow 25565
 ufw allow 25566
