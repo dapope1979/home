@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install zip -y
+apt-get upgrade
 
 sudo snap install docker
 
