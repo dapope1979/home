@@ -14,7 +14,7 @@ services:
     environment:
       - SERVER_NAME=My Server
       - WORLD_NAME=ValheimTime
-      - SERVER_PASS=PopeRuinVikingThings
+      - SERVER_PASS=PopesRuinVikingThings
       - SERVER_PUBLIC=false
     restart: unless-stopped
     stop_grace_period: 2m
