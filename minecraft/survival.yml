@@ -10,12 +10,12 @@ services:
       SERVER_NAME: "survival"
       MAX_MEMORY: "6G"
       OPS: "programmingpope"
-      VERSION: "1.16.4"
+      VERSION: "1.16.5"
       MOTD: "mooo"
     image: itzg/minecraft-server
-    container_name: minecraft_survival
+    container_name: minecraft_survival2
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
-    - /well/minecraft/survival:/data
+    - /well/minecraft/survival2:/data
