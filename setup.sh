@@ -37,6 +37,7 @@ usermod -aG docker vatican
 ufw allow 25565
 ufw allow 25566
 ufw allow 25567
+ufw allow 2456
 
 #plex
 ufw allow 32400
