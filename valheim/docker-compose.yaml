@@ -1,0 +1,20 @@
+version: "3"
+
+services: 
+  valheim: 
+    image: lloesche/valheim-server
+    cap_add:
+      - sys_nice
+    volumes: 
+      - /well/container-data/valheim/config:/config
+      - /well/container-data/valheim/data:/opt/valheim
+    ports: 
+      - "2456-2457:2456-2457/udp"
+      - "9001:9001/tcp"
+    environment:
+      - SERVER_NAME=My Server
+      - WORLD_NAME=ValheimTime
+      - SERVER_PASS=PopeRuinVikingThings
+      - SERVER_PUBLIC=false
+    restart: unless-stopped
+    stop_grace_period: 2m
