@@ -8,7 +8,7 @@ services:
     environment:
       EULA: "TRUE"
       SERVER_NAME: "survival"
-      MAX_MEMORY: "6G"
+      MAX_MEMORY: "2G"
       OPS: "programmingpope"
       VERSION: "1.16.5"
       MOTD: "mooo"
