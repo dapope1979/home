@@ -8,14 +8,16 @@ services:
     environment:
       EULA: "TRUE"
       SERVER_NAME: "survival"
-      MAX_MEMORY: "2G"
+      SPAWN_PROTECTION: "0"
+      MAX_MEMORY: "3G"
       OPS: "programmingpope"
-      VERSION: "1.16.5"
+      VERSION: "LATEST"
       MOTD: "mooo"
+      SEED: "5725851600822493716"
     image: itzg/minecraft-server
-    container_name: minecraft_survival2
+    container_name: minecraft_survival3
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
-    - /well/minecraft/survival2:/data
+    - /well/minecraft/survival3:/data
