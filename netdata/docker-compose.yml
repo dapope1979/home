@@ -4,7 +4,6 @@ services:
     image: netdata/netdata
     container_name: netdata
     hostname: router.home
-    network_mode: host
     ports:
       - 19999:19999
     environment:
@@ -23,6 +22,8 @@ services:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /etc/os-release:/host/etc/os-release:ro
+      - /:/hosts/root:ro
+      - /well:/hosts/well:ro
   proxy:
     image: tecnativa/docker-socket-proxy
     container_name: netdata_proxy
