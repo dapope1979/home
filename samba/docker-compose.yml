@@ -2,7 +2,7 @@ version: '3'
  
 services:
   samba:
-    build: .
+    # build: .
     image: servercontainers/samba
     container_name: pihole
     restart: always
@@ -27,11 +27,11 @@ services:
       # GROUPS_alice: family
 
 
-      SAMBA_VOLUME_CONFIG_public: "[Public]; path=/shares/public; guest ok = yes; read only = no; browseable = yes"
+      SAMBA_VOLUME_CONFIG_backups: "[Public]; path=/shares/public; guest ok = yes; read only = no; browseable = yes"
       
     volumes:
       # - /etc/avahi/services/:/external/avahi
       
       # avoid loops when mounting folders to /shares (I'd recommend explicit mapping for each share)
-      - ./shares/backups:/shares/backups
-      - ./shares/share
+      - ./well/backups:/shares/backups
+      # - ./shares/share
