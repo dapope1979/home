@@ -6,6 +6,8 @@ services:
     hostname: router.home # set to fqdn of host
     ports:
       - 19999:19999
+    environment:
+      - DOCKER_HOST=proxy:2375
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE
