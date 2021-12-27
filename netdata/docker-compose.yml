@@ -22,8 +22,8 @@ services:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /etc/os-release:/host/etc/os-release:ro
-      - /:/hosts/root:ro
-      - /well:/hosts/well:ro
+      - /:/host/root:ro
+      - /well:/host/well:ro
   proxy:
     image: tecnativa/docker-socket-proxy
     container_name: netdata_proxy
