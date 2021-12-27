@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# prereqs
 cp sources.list /etc/apt/
 apt update
 apt upgrade -y

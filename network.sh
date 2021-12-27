@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# manually take down interfaces...
-
 cp interfaces /etc/network
 cp sysctl.conf /etc
 cp iptables-rules /etc/network

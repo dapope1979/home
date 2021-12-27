@@ -1,4 +1,10 @@
-# WAN: ens33 ---- LAN: ens36, ens37
+#enp7s0f0
+#enp0s31f6
+#enp7s0f1
+#enp8s0f0
+#enp8s0f1
+#bond0 - WAN
+#br0 - LAN
 
 *nat
 :PREROUTING ACCEPT [0:0]
@@ -56,11 +62,4 @@ COMMIT
 
 -A FORWARD -j DROP
 
-#enp7s0f0
-#enp0s31f6
-#enp7s0f1
-#enp8s0f0
-#enp8s0f1
-#bond0 - WAN
-#br0 - LAN
 COMMIT
