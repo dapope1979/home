@@ -1,48 +1,42 @@
 #!/bin/bash
 
-apt-get update
-apt-get upgrade
+# prereqs
+cp sources.list /etc/apt/
+apt update
+apt upgrade -y
+apt install -y curl \
+    iptables \
+    linux-headers-amd64 \
+    bridge-utils \
+    openssh-server \
+    sudo
+usermod -aG sudo user
 
 # Network
-rm /etc/netplan/*
-cp 01-netcfg.yaml /etc/netplan/
-# disable DNS stub listener & use DNS from DHCP (also lets pihole use ports)
-sed -r -i.orig 's/#?DNSStubListener=yes/DNSStubListener=no/g' /etc/systemd/resolved.conf
-sh -c 'rm /etc/resolv.conf && ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf'
-netplan generate
-netplan apply
+cp interfaces /etc/network
+cp /etc/sysctl.conf /etc/sysctl.conf.bak
+cp sysctl.conf /etc
+cp iptables-rules /etc/network
+cp iptables /etc/network/if-pre-up.d
+chmod 755 /etc/network/if-pre-up.d/iptables
+/etc/network/if-pre-up.d/iptables
+systemctl restart networking
 
 #ZFS
-apt install zfsutils-linux
-zpool import -f well
+# https://wiki.debian.org/ZFS
+# manually install due to license warning
+# apt install -y -t bullseye-backports zfsutils-linux
+# manually import the pool
 
 # Docker
-apt-get remove -y docker docker-engine docker.io containerd runc
-apt-get install -y \
-    apt-transport-https \
+apt remove -y docker docker.io containerd runc
+apt install -y \
     ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-apt-get update
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
-usermod -aG docker vatican
-
-#minecraft firewall rules
-ufw allow 25565
-ufw allow 25566
-ufw allow 25567
-ufw allow 2456
-
-#plex
-ufw allow 32400
-
-#pihole
-ufw allow 80
-ufw allow 443
-
+    gnupg \
+    lsb-release
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose

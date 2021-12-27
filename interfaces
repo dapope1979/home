@@ -1,0 +1,44 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# WAN enp8s0f0, enp8s0f1
+#auto ens33
+#iface ens33 inet dhcp
+auto bond0
+iface bond0 inet dhcp
+  slaves enp8s0f0 enp8s0f1
+  bond-mode 802.3ad
+  bond-miimon 100
+  bond-lacp-rate 1
+
+# LAN 1 - onboard - enp0s31f6
+iface enp0s31f6 inet manual
+   pre-up   ifconfig $IFACE up
+   pre-down ifconfig $IFACE down
+
+# LAN 2 - lower card inside - enp7s0f0
+iface enp7s0f0 inet manual
+   pre-up   ifconfig $IFACE up
+   pre-down ifconfig $IFACE down
+
+# LAN 2 - lower card inside - enp7s0f1
+iface enp7s0f0 inet manual
+   pre-up   ifconfig $IFACE up
+   pre-down ifconfig $IFACE down
+
+
+# Setup an IP address for our bridge 
+auto br0
+iface br0 inet static
+  bridge_ports enp0s31f6 enp7s0f0 enp7s0f1
+  address 10.9.8.1
+  broadcast 10.9.8.255
+  netmask 255.0.0.0
+
+
+
+# LAN enp7s0f0, enp7s0f1, enp0s31f6
