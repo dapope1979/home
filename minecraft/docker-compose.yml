@@ -3,7 +3,7 @@ version: '2'
 services:
   minecraft-survival:
     ports:
-      - "25566:25565"
+      - "25565:25565"
     environment:
       EULA: "TRUE"
       SERVER_NAME: "survival"
@@ -13,13 +13,16 @@ services:
       VERSION: "LATEST"
       MOTD: "mooo"
       SEED: "5725851600822493716"
+      TYPE: "PAPER"
       TUNE_VIRTUALIZED: "TRUE"
       ENABLE_AUTOPAUSE: "TRUE"
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
-      MAX_TICK_TIME: "-1"      
-      AUTOPAUSE_TIMEOUT_EST: "900"
+      MAX_TICK_TIME: "-1"
+      JVM_DD_OPTS: "disable.watchdog:true"
+      AUTOPAUSE_TIMEOUT_EST: "600"
+      VIEW_DISTANCE: "32"
     image: itzg/minecraft-server
-    container_name: minecraft_survival3
+    container_name: minecraft_survival
     tty: true
     stdin_open: true
     restart: unless-stopped
