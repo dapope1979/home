@@ -24,6 +24,7 @@ services:
       - /etc/os-release:/host/etc/os-release:ro
   proxy:
     image: tecnativa/docker-socket-proxy
+    container_name: netdata_proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
