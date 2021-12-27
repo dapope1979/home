@@ -5,7 +5,8 @@ services:
     tty: true
     network_mode: bridge
     volumes:
-      - /well/backups:/Shared
+      - /well/backups:/backups
+      - /well/share:/share
     ports:
       - "139:139"
       - "445:445"
