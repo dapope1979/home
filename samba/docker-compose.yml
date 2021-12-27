@@ -2,15 +2,15 @@ version: '3'
 
 services:
   samba:
+    build: .
+    container_name: samba
     tty: true
     network_mode: bridge
+    ports:
+      - "139:139"
+      - "445:445"
     volumes:
       - smb.conf:/etc/samba/smb.conf:ro
       - /well/backups:/backups
       - /well/share:/share
-    ports:
-      - "139:139"
-      - "445:445"
-    build:
-      context: .
-      dockerfile: Dockerfile
+    
