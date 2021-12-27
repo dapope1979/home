@@ -5,6 +5,7 @@ services:
     tty: true
     network_mode: bridge
     volumes:
+      - smb.conf:/etc/samba/smb.conf:ro
       - /well/backups:/backups
       - /well/share:/share
     ports:

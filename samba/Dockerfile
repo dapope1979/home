@@ -5,8 +5,6 @@ RUN apk add --no-cache --update \
     samba-client \
     samba-server
 
-COPY smb.conf /etc/samba/smb.conf
-
 EXPOSE 139/tcp 445/tcp
 
 CMD ["smbd", "--foreground", "--log-stdout", "--no-process-group"]
