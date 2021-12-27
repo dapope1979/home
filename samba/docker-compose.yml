@@ -1,37 +1,14 @@
 version: '3'
- 
+
 services:
   samba:
-    # build: .
-    image: servercontainers/samba
-    container_name: samba
-    restart: always
-    ports:
-      - "137:137/udp"
-      - "138:138/udp"
-      - "139:139/tcp"
-      - "445:445/tcp"
-    # uncomment to solve bug: https://github.com/ServerContainers/samba/issues/50 - wsdd2 only - not needed for samba
-    #cap_add:
-    #  - CAP_NET_ADMIN
-    environment:
-      # MODEL: 'TimeCapsule'
-      # AVAHI_NAME: StorageServer
-
-      SAMBA_CONF_LOG_LEVEL: 3
-
-      # GROUP_family: 1500
-
-      # ACCOUNT_alice: alipass
-      # UID_alice: 1000
-      # GROUPS_alice: family
-
-
-      SAMBA_VOLUME_CONFIG_backups: "[Public]; path=/shares/backups; guest ok = yes; read only = no; browseable = yes"
-      
+    tty: true
+    network_mode: bridge
     volumes:
-      # - /etc/avahi/services/:/external/avahi
-      
-      # avoid loops when mounting folders to /shares (I'd recommend explicit mapping for each share)
-      - ./well/backups:/shares/backups
-      # - ./shares/share
+      - /well/backups:/Shared
+    ports:
+      - "139:139"
+      - "445:445"
+    build:
+      context: .
+      dockerfile: Dockerfile
