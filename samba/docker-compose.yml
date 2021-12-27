@@ -10,7 +10,7 @@ services:
       - "139:139"
       - "445:445"
     volumes:
-      - smb.conf:/etc/samba/smb.conf:ro
+      - ./smb.conf:/etc/samba/smb.conf:ro
       - /well/backups:/backups
       - /well/share:/share
     
