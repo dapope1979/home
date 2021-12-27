@@ -7,4 +7,4 @@ RUN apk add --no-cache --update \
 
 EXPOSE 139/tcp 445/tcp
 
-CMD ["smbd", "--foreground", "--log-stdout", "--no-process-group"]
+CMD ["smbd", "--foreground", "--no-process-group"]
