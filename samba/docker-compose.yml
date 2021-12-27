@@ -20,4 +20,4 @@ services:
       - /well/media:/mnt1:z
       - /well/backups:/mnt2:z
       - /well/share:/mnt3:z
-    command: '-s "backups;/mnt2;yes;no;yes" -s "media;/mnt1;yes;no;yes" -s "share;/mnt3;yes;no;yes" -p'
+    command: '-s "backups;/mnt2;yes;no;yes" -s "share;/mnt3;yes;no;yes" -p'
