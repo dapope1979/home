@@ -4,6 +4,7 @@ services:
     image: netdata/netdata
     container_name: netdata
     hostname: router.home
+    network_mode: host
     ports:
       - 19999:19999
     environment:
@@ -31,5 +32,6 @@ services:
       - CONTAINERS=1
 
 volumes:
+  netdataconfig:
   netdatalib:
   netdatacache:

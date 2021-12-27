@@ -4,7 +4,6 @@ services:
   samba:
     image: dperson/samba
     container_name: samba
-    network_mode: host
     environment:
       TZ: 'America/Denver'
     ports:
