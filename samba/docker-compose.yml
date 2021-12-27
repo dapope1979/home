@@ -4,7 +4,7 @@ services:
   samba:
     # build: .
     image: servercontainers/samba
-    container_name: pihole
+    container_name: samba
     restart: always
     ports:
       - "137:137/udp"
