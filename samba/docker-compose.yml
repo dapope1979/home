@@ -1,24 +1,36 @@
-version: '3.4'
-
+version: '3'
+ 
 services:
   samba:
-    image: dperson/samba
-    container_name: samba
-    environment:
-      TZ: 'America/Denver'
+    build: .
+    image: servercontainers/samba
+    restart: always
     ports:
       - "137:137/udp"
       - "138:138/udp"
       - "139:139/tcp"
       - "445:445/tcp"
-    read_only: false
-    tmpfs:
-      - /tmp
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
+    # uncomment to solve bug: https://github.com/ServerContainers/samba/issues/50 - wsdd2 only - not needed for samba
+    #cap_add:
+    #  - CAP_NET_ADMIN
+    environment:
+      # MODEL: 'TimeCapsule'
+      # AVAHI_NAME: StorageServer
+
+      SAMBA_CONF_LOG_LEVEL: 3
+
+      # GROUP_family: 1500
+
+      # ACCOUNT_alice: alipass
+      # UID_alice: 1000
+      # GROUPS_alice: family
+
+
+      SAMBA_VOLUME_CONFIG_public: "[Public]; path=/shares/public; guest ok = yes; read only = no; browseable = yes"
+      
     volumes:
-      - /well/media:/mnt1:z
-      - /well/backups:/mnt2:z
-      - /well/share:/mnt3:z
-    command: '-s "backups;/mnt2;yes;no;yes" -s "share;/mnt3;yes;no;yes" -p'
+      # - /etc/avahi/services/:/external/avahi
+      
+      # avoid loops when mounting folders to /shares (I'd recommend explicit mapping for each share)
+      - ./shares/backups:/shares/backups
+      - ./shares/share
