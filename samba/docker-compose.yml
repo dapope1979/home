@@ -27,7 +27,7 @@ services:
       # GROUPS_alice: family
 
 
-      SAMBA_VOLUME_CONFIG_backups: "[Public]; path=/shares/public; guest ok = yes; read only = no; browseable = yes"
+      SAMBA_VOLUME_CONFIG_backups: "[Public]; path=/shares/backups; guest ok = yes; read only = no; browseable = yes"
       
     volumes:
       # - /etc/avahi/services/:/external/avahi
