@@ -4,6 +4,7 @@ services:
   samba:
     build: .
     container_name: samba
+    restart: unless-stopped
     tty: true
     network_mode: bridge
     ports:
