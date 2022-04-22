@@ -8,9 +8,10 @@ services:
       - 10.9.8.1:19999:19999
     environment:
       - DOCKER_HOST=proxy:2375
-      - NETDATA_CLAIM_TOKEN=
       - NETDATA_CLAIM_URL=https://app.netdata.cloud
-      - NETDATA_CLAIM_ROOMS=
+      - NETDATA_CLAIM_ROOMS=b5c5f81e-ecc0-4de5-92f6-cdb13206bb06
+    env_file:
+      - .env
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE
