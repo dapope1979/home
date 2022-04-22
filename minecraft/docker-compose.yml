@@ -3,7 +3,7 @@ version: '2'
 services:
   minecraft-survival:
     ports:
-      - "25565:25565"
+      - "10.9.8.1:25565:25565"
     environment:
       EULA: "TRUE"
       SERVER_NAME: "survival"
