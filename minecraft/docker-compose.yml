@@ -28,3 +28,18 @@ services:
     restart: unless-stopped
     volumes:
     - /well/minecraft/survival3:/data
+  backups:
+    image: itzg/mc-backup
+    environment:
+      BACKUP_INTERVAL: "12h"
+      PAUSE_IF_NO_PLAYERS: "true"
+      # instead of network_mode below, could declare RCON_HOST
+      # RCON_HOST: mc
+    volumes:
+    # mount the same volume used by server, but read-only
+    - /well/minecraft/survival3:/data:ro
+    # use a host attached directory so that it in turn can be backed up
+    # to external/cloud storage
+    - /well/minecraft/survival3-backup:/backups
+    # share network namespace with server to simplify rcon access
+    network_mode: "service:minecraft-survival"
