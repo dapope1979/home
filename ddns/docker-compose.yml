@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  minecraft-survival:
+    environment:
+      DIGITALOCEAN_TOKEN: "___"
+      DOMAIN: "programmingpope.com"
+      NAME: "0"
+      REMOVE_DUPLICATES: "true"
+    image: tunix/digitalocean-dyndns
+    container_name: ddns
+    restart: unless-stopped
