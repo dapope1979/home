@@ -3,7 +3,7 @@ version: '2'
 services:
   minecraft-survival:
     ports:
-      - "25565:25565"
+      - "10.9.8.1:25565:25565"
     environment:
       EULA: "TRUE"
       SERVER_NAME: "survival"
@@ -22,12 +22,12 @@ services:
       AUTOPAUSE_TIMEOUT_EST: "600"
       VIEW_DISTANCE: "32"
     image: itzg/minecraft-server
-    container_name: minecraft_survival
+    container_name: minecraft_modtest
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
-    - /root/survival3:/data
+    - /well/minecraft/modtest:/data
   backups:
     image: itzg/mc-backup
     environment:
