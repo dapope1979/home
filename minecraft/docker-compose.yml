@@ -14,6 +14,7 @@ services:
       MOTD: "mooo"
       SEED: "5725851600822493716"
       TYPE: "FABRIC"
+      VERSION: "1.19.2"
       TUNE_VIRTUALIZED: "TRUE"
       ENABLE_AUTOPAUSE: "TRUE"
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
@@ -37,7 +38,7 @@ services:
       # RCON_HOST: mc
     volumes:
     # mount the same volume used by server, but read-only
-    - /well/minecraft/survival3:/data:ro
+    - /root/survival3:/data:ro
     # use a host attached directory so that it in turn can be backed up
     # to external/cloud storage
     - /well/minecraft/survival3-backup:/backups
