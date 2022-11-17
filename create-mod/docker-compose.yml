@@ -1,0 +1,47 @@
+version: '2'
+
+services:
+  minecraft-survival:
+    ports:
+      - "25566:25565"
+    environment:
+      EULA: "TRUE"
+      SERVER_NAME: "cree8"
+      SPAWN_PROTECTION: "0"
+      MAX_MEMORY: "3G"
+      OPS: "programmingpope"
+      WHITELIST: "programmingpope,geenpoplio"
+      ENFORCE_WHITELIST: "TRUE"
+      MOTD: "mooo"
+      SEED: "5725851600822493716"
+      TYPE: "FABRIC"
+      VERSION: "1.18.2"
+      TUNE_VIRTUALIZED: "TRUE"
+      ENABLE_AUTOPAUSE: "TRUE"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      MAX_TICK_TIME: "-1"
+      JVM_DD_OPTS: "disable.watchdog:true"
+      AUTOPAUSE_TIMEOUT_EST: "600"
+      VIEW_DISTANCE: "32"
+    image: itzg/minecraft-server
+    container_name: minecraft_create_mod
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+    - ./data:/data
+  backups:
+    image: itzg/mc-backup
+    environment:
+      BACKUP_INTERVAL: "12h"
+      PAUSE_IF_NO_PLAYERS: "true"
+      # instead of network_mode below, could declare RCON_HOST
+      # RCON_HOST: mc
+    volumes:
+    # mount the same volume used by server, but read-only
+    - /root/survival3:/data:ro
+    # use a host attached directory so that it in turn can be backed up
+    # to external/cloud storage
+    - /well/minecraft/survival3-backup:/backups
+    # share network namespace with server to simplify rcon access
+    network_mode: "service:minecraft-survival"
