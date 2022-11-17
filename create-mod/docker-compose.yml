@@ -10,7 +10,7 @@ services:
       SPAWN_PROTECTION: "0"
       MAX_MEMORY: "3G"
       OPS: "programmingpope"
-      WHITELIST: "programmingpope,geenpoplio"
+      WHITELIST: "programmingpope,greenpoplio"
       ENFORCE_WHITELIST: "TRUE"
       MOTD: "mooo"
       SEED: "5725851600822493716"
