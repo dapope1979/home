@@ -13,7 +13,7 @@ services:
       WHITELIST: "programmingpope,greenpoplio"
       ENFORCE_WHITELIST: "TRUE"
       MOTD: "Create is a Delight!"
-      SEED: "5725851600822493716"
+      SEED: "-9093641376327819334"
       TYPE: "FABRIC"
       VERSION: "1.18.2"
       TUNE_VIRTUALIZED: "TRUE"
