@@ -12,7 +12,7 @@ services:
       OPS: "programmingpope"
       WHITELIST: "programmingpope,greenpoplio"
       ENFORCE_WHITELIST: "TRUE"
-      MOTD: "mooo"
+      MOTD: "Create is a Delight!"
       SEED: "5725851600822493716"
       TYPE: "FABRIC"
       VERSION: "1.18.2"
