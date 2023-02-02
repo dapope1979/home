@@ -12,7 +12,7 @@ services:
       OPS: "programmingpope"
       WHITELIST: "programmingpope,greenpoplio"
       ENFORCE_WHITELIST: "TRUE"
-      MOTD: "Sorry"
+      MOTD: "much mawds"
       SEED: "3852389639702038662"
       TYPE: "FABRIC"
       TUNE_VIRTUALIZED: "TRUE"
