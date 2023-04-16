@@ -8,11 +8,13 @@ services:
       EULA: "TRUE"
       SERVER_NAME: "cree8"
       SPAWN_PROTECTION: "0"
-      MAX_MEMORY: "3G"
+      MEMORY: ""
+      JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
+      USE_AIKAR_FLAGS: "TRUE"
       OPS: "programmingpope"
       WHITELIST: "programmingpope,greenpoplio"
       ENFORCE_WHITELIST: "TRUE"
-      MOTD: "yo fam"
+      MOTD: "Meow meow??"
       SEED: "3852389639702038662"
       TYPE: "FABRIC"
       VERSION: "1.19.2"
@@ -33,7 +35,7 @@ services:
   backups:
     image: itzg/mc-backup
     environment:
-      BACKUP_INTERVAL: "12h"
+      BACKUP_INTERVAL: "2h"
       PAUSE_IF_NO_PLAYERS: "true"
       # instead of network_mode below, could declare RCON_HOST
       # RCON_HOST: mc
@@ -42,6 +44,6 @@ services:
     - ./data:/data:ro
     # use a host attached directory so that it in turn can be backed up
     # to external/cloud storage
-    - /well/minecraft/create-backup:/backups
+    - /media/backups/create-mod:/backups
     # share network namespace with server to simplify rcon access
     network_mode: "service:minecraft-survival"
