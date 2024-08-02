@@ -1,0 +1,4 @@
+[NetDev]
+Name=br0
+Description=Bridge for LAN
+Kind=bridge

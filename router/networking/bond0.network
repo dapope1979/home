@@ -1,0 +1,6 @@
+[Match]
+Name=enp1s0
+Name=enp7s0
+
+[Network]
+Bond=bond0

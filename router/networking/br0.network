@@ -1,0 +1,7 @@
+[Match]
+Name=enp8s0
+Name=enp9s0
+Name=enp10s0
+
+[Network]
+Bridge=br0

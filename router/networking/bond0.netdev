@@ -1,0 +1,7 @@
+[NetDev]
+Name=bond0
+Description=LAG/Bond to WAN
+Kind=bond
+
+[Bond]
+Mode=802.3ad
