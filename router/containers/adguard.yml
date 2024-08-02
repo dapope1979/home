@@ -3,8 +3,6 @@ name: adguardhome
 services:
   adguardhome:
     image: adguard/adguardhome
-    ports:
-      - 10.9.8.1:53:53/tcp # plain dns over tcp
-      - 10.9.8.1:53:53/udp # plain dns over udp
-      - 10.9.8.1:80:80/tcp # http web interface
-      - 10.9.8.1:3000:3000/tcp # initial setup web interface
+    network_mode: host
+    volumes:
+      - config:/opt/adguardhome/conf # app configuration
