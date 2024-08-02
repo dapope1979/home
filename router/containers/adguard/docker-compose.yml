@@ -3,6 +3,7 @@ name: adguardhome
 services:
   adguardhome:
     image: adguard/adguardhome
+    restart: unless-stopped
     network_mode: host
     volumes:
-      - config:/opt/adguardhome/conf # app configuration
+      - ./config:/opt/adguardhome/conf # app configuration
