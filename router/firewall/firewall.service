@@ -1,0 +1,10 @@
+[Unit]
+Description=Add Firewall Rules to iptables
+
+[Service]
+Type=oneshot
+ExecStart=/etc/firewall/enable.sh
+#ExecStart=/etc/firewall/enable6.sh  #For IPV6
+
+[Install]
+WantedBy=multi-user.target
