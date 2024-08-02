@@ -1,4 +1,7 @@
 #!/bin/bash
+
+apt install -y iptables
+
 mkdir -p /etc/systemd/system
 cp firewall/firewall.service /etc/systemd/system/firewall.service
 mkdir -p /etc/firewall
