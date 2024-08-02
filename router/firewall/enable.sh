@@ -74,10 +74,3 @@ iptables        -A FORWARD     -o bond0 -i br0 -s 10.9.8.0/24 \
 # iptables        -A FORWARD    -i bond0 -p tcp --dport 80 \
 #                               -o br0 -d 192.168.0.2    \
 #                               -m conntrack --ctstate NEW -j ACCEPT
-
-
-## LOGGING
-
-iptables -A INPUT   -j LOG --log-level DEBUG --log-prefix '[FW INPUT]:    '
-iptables -A OUTPUT  -j LOG --log-level DEBUG --log-prefix '[FW OUTPUT]:   '
-iptables -A FORWARD -j LOG --log-level DEBUG --log-prefix '[FW FORWARD ]: '
