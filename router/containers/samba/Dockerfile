@@ -3,9 +3,9 @@ FROM debian:bookworm-slim
 RUN apt update
 RUN apt install -y samba samba-client
 
-RUN mkdir /backups
-RUN mkdir /media
-RUN mkdir /share
+RUN mkdir -p /backups
+RUN mkdir -p /media
+RUN mkdir -p /share
 
 RUN useradd --system shareuser
 RUN chown -R shareuser /backups
