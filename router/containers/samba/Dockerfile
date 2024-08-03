@@ -1,4 +1,4 @@
-FROM bookworm-slim
+FROM debian:bookworm-slim
 
 RUN apt install -y samba samba-client
 RUN useradd --system shareuser
