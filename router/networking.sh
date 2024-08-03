@@ -4,3 +4,5 @@ systemctl disable --now networking.service
 
 cp networking/* /etc/systemd/network
 systemctl enable --now systemd-networkd.service
+
+echo "** Reboot required **"
