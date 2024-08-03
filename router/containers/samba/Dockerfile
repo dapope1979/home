@@ -1,10 +1,11 @@
-FROM alpine:3
+FROM bookworm-slim
 
-RUN apk add --no-cache --update \
-    samba-common-tools \
-    samba-client \
-    samba-server
+RUN apt install -y samba samba-client
+RUN useradd --system shareuser
+RUN chown -R shareuser /backups
+RUN chown -R shareuser /media
+RUN chown -R shareuser /share
 
-EXPOSE 139/tcp 445/tcp
+EXPOSE 137/tcp 138/tcp 139/tcp 445/tcp
 
 CMD ["smbd", "--foreground", "--debug-stdout", "--no-process-group"]
