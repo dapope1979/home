@@ -1,5 +1,6 @@
 FROM debian:bookworm-slim
 
+RUN apt update
 RUN apt install -y samba samba-client
 RUN useradd --system shareuser
 RUN chown -R shareuser /backups
