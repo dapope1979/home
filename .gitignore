@@ -1,2 +1,3 @@
 .env
-joplin/data
+apps/containers/joplin/data
+router/containers/adguard/config

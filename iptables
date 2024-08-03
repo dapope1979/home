@@ -1,2 +1,0 @@
-#!/bin/sh
-/sbin/iptables-restore < /etc/network/iptables-rules

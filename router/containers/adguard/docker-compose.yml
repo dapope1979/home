@@ -6,4 +6,4 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ./config:/opt/adguardhome/conf # app configuration
+      - /var/lib/container-data/adguard:/opt/adguardhome/conf # app configuration
