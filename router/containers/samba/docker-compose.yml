@@ -6,10 +6,7 @@ services:
     container_name: samba
     restart: unless-stopped
     tty: true
-    network_mode: bridge
-    ports:
-      - "139:139"
-      - "445:445"
+    network_mode: host
     volumes:
       - ./smb.conf:/etc/samba/smb.conf:ro
       - /well/backups:/backups

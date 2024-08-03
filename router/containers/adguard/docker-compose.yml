@@ -1,4 +1,4 @@
-name: adguardhome
+version: '3'
 
 services:
   adguardhome:
