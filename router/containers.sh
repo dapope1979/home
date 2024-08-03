@@ -2,7 +2,7 @@
 
 # remove possible pre-installed stuff
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do apt-get remove $pkg; done
-
+apt remove -y curl
 
 ## https://docs.docker.com/engine/install/debian/
 # Add Docker's official GPG key:
