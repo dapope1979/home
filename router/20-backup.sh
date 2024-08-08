@@ -3,7 +3,7 @@ apt install -y duplicity
 mkdir -p /well/backups/server/router
 
 # backup conatainer data everyday @ 3:00am
-line="0 3 0 0 0 duplicity /var/lib/container-data file:///well/backups/server/router/ --no-encryption"
+line="* 3 * * * duplicity /var/lib/container-data file:///well/backups/server/router/ --no-encryption"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
 # restore a single directory
