@@ -1,3 +1,9 @@
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 10.9.8.0/24
+
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -19,12 +25,5 @@ services:
       - /var/lib/container-data/nginx/data:/data
       - /var/lib/container-data/nginx/letsencrypt:/etc/letsencrypt
     networks:
-      dockerbridge:
-        ipv4_address 10.9.8.2
-
-networks:
-  dockerbridge:
-    driver: bridge
-    config:
-      - subnet: 10.9.8.0/24
-        gateway: 10.9.8.1
+      mynetwork:
+        ipv4_address: 10.9.8.2
