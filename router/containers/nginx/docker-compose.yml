@@ -2,7 +2,7 @@ services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
-    
+    network_mode: host
     # Uncomment the next line if you uncomment anything in the section
     environment:
       # Uncomment this if you want to change the location of
