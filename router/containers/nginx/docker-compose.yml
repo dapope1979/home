@@ -27,3 +27,6 @@ services:
     networks:
       mynetwork:
         ipv4_address: 10.9.8.2
+
+
+        # try https://nginxproxymanager.com/advanced-config/
