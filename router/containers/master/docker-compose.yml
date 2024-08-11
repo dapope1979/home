@@ -12,7 +12,7 @@ services:
       # Expose port 68 on UDP for DHCP client
       # - "68:68/udp"
       # Expose port 80 on TCP for HTTP web interface
-      - "80:80/tcp"
+      - "8088:8088/tcp"
       # Expose port 443 on TCP and UDP for HTTPS web interface
       - "443:443/tcp"
       - "443:443/udp"
