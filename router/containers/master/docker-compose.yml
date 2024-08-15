@@ -1,9 +1,8 @@
 services:
-  adguardhome:  # Define the service named 'adguardhome'
+  adguard:  # Define the service named 'adguardhome'
     image: adguard/adguardhome  # Use the 'adguard/adguardhome' Docker image
     container_name: adguardhome  # Set the container name to 'adguardhome'
     restart: unless-stopped  # Restart the container automatically unless stopped manually
-    network_mode: host
     ports:  # Map container ports to host ports
       # Expose port 53 on TCP and UDP for DNS queries
       - "53:53/tcp"
@@ -25,20 +24,12 @@ services:
   nginx:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
-    network_mode: host
-    extra_hosts:
-    - "adguardhome:127.0.0.1"
     ports:
       - '80:80'
       - '81:81'
       - '443:443'
     environment:
       DISABLE_IPV6: 'true'
-
     volumes:
       - /var/lib/container-data/nginx/data:/data
       - /var/lib/container-data/nginx/letsencrypt:/etc/letsencrypt
-
-
-
-#https://stackoverflow.com/questions/58236867/how-to-combine-host-network-with-the-default-network-in-docker-compose
