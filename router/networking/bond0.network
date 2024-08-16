@@ -1,6 +1,6 @@
 [Match]
-Name=enp1s0
-Name=enp7s0
+Name=ens33
+Name=ens34
 
 [Network]
 Bond=bond0
