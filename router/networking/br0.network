@@ -1,7 +1,7 @@
 [Match]
-Name=enp8s0
-Name=enp9s0
-Name=enp10s0
+Name=ens38
+Name=enps39
+Name=ens40
 
 [Network]
 Bridge=br0
