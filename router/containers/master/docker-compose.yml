@@ -1,35 +1,10 @@
 services:
-  adguard:  # Define the service named 'adguardhome'
-    image: adguard/adguardhome  # Use the 'adguard/adguardhome' Docker image
-    container_name: adguardhome  # Set the container name to 'adguardhome'
-    restart: unless-stopped  # Restart the container automatically unless stopped manually
-    ports:  # Map container ports to host ports
-      # Expose port 53 on TCP and UDP for DNS queries
-      - "53:53/tcp"
-      - "53:53/udp"
-      # Expose port 67 on UDP for DHCP server
-      - "67:67/udp"
-      # Expose port 68 on UDP for DHCP client
-      # - "68:68/udp"
-      # Expose port 80 on TCP for HTTP web interface
-      - "8088:8088/tcp"
-      # Expose port 443 on TCP and UDP for HTTPS web interface
-      #- "443:443/tcp"
-      #- "443:443/udp"
-      # Expose port 3000 on TCP for AdGuard Home's API
-      - "3000:3000/tcp"
-    volumes:  # Mount host directories as volumes inside the container
-      - /data/adguard-home/work:/opt/adguardhome/work  # Mount '/my/own/workdir' to '/opt/adguardhome/work'
-      - /data/adguard-home/confdir:/opt/adguardhome/conf  # Mount '/my/own/confdir' to '/opt/adguardhome/conf'
-  nginx:
-    image: 'jc21/nginx-proxy-manager:latest'
+  adguardhome:
+    image: adguard/adguardhome
     restart: unless-stopped
-    ports:
-      - '80:80'
-      - '81:81'
-      - '443:443'
-    environment:
-      DISABLE_IPV6: 'true'
+    network_mode: host
     volumes:
-      - /var/lib/container-data/nginx/data:/data
-      - /var/lib/container-data/nginx/letsencrypt:/etc/letsencrypt
+      - /var/lib/container-data/adguard:/opt/adguardhome/conf # app configuration
+  proxy:
+    build: proxy
+    network_mode: host
