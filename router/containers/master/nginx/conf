@@ -1,7 +1,14 @@
+# listen at ip for setup
 server {
-    listen       80;
     server_name  localhost;
     location /adguard {
         proxy_pass   http://localhost:3000;
     }    
+}
+
+server {
+    server_name router.pope.internal;
+    location / {
+        proxy_pass http://localhost:3000;
+    }
 }
