@@ -6,5 +6,5 @@ services:
     volumes:
       - /var/lib/container-data/adguard:/opt/adguardhome/conf # app configuration
   proxy:
-    build: proxy
+    build: nginx
     network_mode: host
