@@ -1,7 +1,0 @@
-services:
-  adguardhome:
-    image: adguard/adguardhome
-    restart: unless-stopped
-    network_mode: host
-    volumes:
-      - /var/lib/container-data/adguard:/opt/adguardhome/conf # app configuration

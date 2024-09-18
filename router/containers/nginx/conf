@@ -1,0 +1,22 @@
+# listen at ip for setup
+server {
+    server_name  localhost;
+    location / {
+        proxy_pass http://localhost:3000;
+    }    
+}
+
+# listen at router.pope.internal
+server {
+    server_name router.pope.internal;
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
+
+server {
+    server_name netdata.pope.internal;
+    location / {
+        proxy_pass http://localhost:19999;
+    }
+}

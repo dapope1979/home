@@ -1,7 +1,0 @@
-services:
-  ddns:
-    image: tunix/digitalocean-dyndns
-    container_name: ddns
-    restart: unless-stopped
-    env_file:
-    - .env
