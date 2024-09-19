@@ -20,18 +20,16 @@ services:
     env_file:
     - .env
   samba:
-    image: ghcr.io/servercontainers/samba
+    build: samba
     container_name: samba
     restart: unless-stopped
+    tty: true
     network_mode: host
-    environment:
-      ACCOUNT_odin: password
-      UID_alice: 1000
-      SAMBA_VOLUME_CONFIG_share: "[Share]; path=/shares/share; valid users = alice; guest ok = no; read only = no; browseable = yes"
-
     volumes:
-      - ./well/share:/shares/share
-
+      - ./smb.conf:/etc/samba/smb.conf:ro
+      - /well/backups:/backups
+      - /well/share:/share
+      - /well/media:/media
   netdata:
     image: netdata/netdata
     container_name: netdata
