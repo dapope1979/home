@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ./nginx/conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf:/etc/nginx/conf.d/default.conf:ro
   adguard:
     image: adguard/adguardhome
     container_name: adguard
@@ -20,16 +20,18 @@ services:
     env_file:
     - .env
   samba:
-    build: samba
+    image: ghcr.io/servercontainers/samba
     container_name: samba
     restart: unless-stopped
-    tty: true
     network_mode: host
+    environment:
+      ACCOUNT_odin: password
+      UID_alice: 1000
+      SAMBA_VOLUME_CONFIG_share: "[Share]; path=/shares/share; valid users = alice; guest ok = no; read only = no; browseable = yes"
+
     volumes:
-      - ./smb.conf:/etc/samba/smb.conf:ro
-      - /well/backups:/backups
-      - /well/share:/share
-      - /well/media:/media
+      - ./well/share:/shares/share
+
   netdata:
     image: netdata/netdata
     container_name: netdata
