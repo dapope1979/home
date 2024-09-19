@@ -26,7 +26,7 @@ services:
     tty: true
     network_mode: host
     volumes:
-      - ./smb.conf:/etc/samba/smb.conf:ro
+      - ./samba/smb.conf:/etc/samba/smb.conf:ro
       - /well/backups:/backups
       - /well/share:/share
       - /well/media:/media

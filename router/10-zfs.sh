@@ -14,3 +14,5 @@ fdisk -l
 echo "\n\nTrying to import pool\n\n"
 zpool import well
 
+# set permission for everyone to read/write
+#sudo chmod -R a+rw /well
