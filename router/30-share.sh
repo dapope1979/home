@@ -1,4 +1,7 @@
 #!/bin/bash
+
+source /usr/local/sbin/configs/.env
+
 dnf install -y samba
 rm /etc/samba/smb.conf
 

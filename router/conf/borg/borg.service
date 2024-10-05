@@ -1,0 +1,6 @@
+[Unit]
+Description="Automate backups w/ borg"
+
+[Service]
+EnvironmentFile=/usr/local/sbin/configs/.env
+ExecStart=/usr/local/sbin/backup.sh

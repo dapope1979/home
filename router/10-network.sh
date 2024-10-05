@@ -1,6 +1,7 @@
 #!/bin/bash
+source /usr/local/sbin/configs/.env
 
-echo "\nConfiguring Network..."
+printf "\nConfiguring Network...\n"
 # configure network
 # create bond and add slaves
 nmcli con add type bond ifname bond0 bond.options "mode=802.3ad,miimon=100"
@@ -42,10 +43,10 @@ firewall-cmd --zone=home --change-interface=bridge0 --permanent
 firewall-cmd --zone=home --set-target=ACCEPT --permanent
 firewall-cmd --reload
 
-echo "\n\nInstalling DNS"
+printf "\n\nInstalling DNS\n"
 wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
 
-echo "\nCockpit: 10.9.8.1:9090"
-echo "AdGuard: 10.9.8.1:3000"
+printf "\nCockpit: 10.9.8.1:9090\n"
+printf "AdGuard: 10.9.8.1:3000\n"
 
-echo "\n\nBe sure to configure AdGuard or restore a backup"
+printf "\n\nBe sure to configure AdGuard or restore a backup.\n"
