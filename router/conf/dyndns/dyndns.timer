@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatically update dynamic dns
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5m
+
+[Install]
+WantedBy=timers.target

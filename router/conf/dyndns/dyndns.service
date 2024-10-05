@@ -1,0 +1,6 @@
+[Unit]
+Description="Digital Ocean dynamic DNS"
+
+[Service]
+ExecStart=/usr/local/sbin/dyndns/dyndns_updater.py
+EOF
