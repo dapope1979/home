@@ -3,6 +3,7 @@
 printf "\nCreating empty configs\n"
 mkdir /usr/local/sbin/configs
 cp conf/example.env /usr/local/sbin/configs/.env
+chmod 600 /usr/local/sbin/configs/.env
 
 # reminder on how to get the raid disk info into .env
 # assuming it's the very first BTRFS disk in lsblk
