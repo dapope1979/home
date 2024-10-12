@@ -22,9 +22,8 @@ borg create                         \
     --list                          \
     --stats                         \
     --show-rc                       \
-                                    \
-    ::'{hostname}-{now}'            \
-    /opt/AdGuardHome \
+    $BORG_REPO::'{hostname}-{now}'  \
+    /opt/AdGuardHome                \
     /usr/local/sbin/configs
 
 backup_exit=$?
@@ -44,7 +43,8 @@ borg prune                          \
     --keep-daily    4               \
     --keep-weekly   1               \
     --keep-monthly  1               \
-    --keep-yearly   4
+    --keep-yearly   4               \
+    $BORG_REPO
 
 prune_exit=$?
 
@@ -52,7 +52,7 @@ prune_exit=$?
 
 info "Compacting repository"
 
-borg compact
+borg compact $BORG_REPO
 
 compact_exit=$?
 

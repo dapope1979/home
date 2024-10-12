@@ -3,4 +3,4 @@ Description="Digital Ocean dynamic DNS"
 
 [Service]
 EnvironmentFile=/usr/local/sbin/configs/.env
-ExecStart=/usr/local/sbin/dyndns/dyndns_updater.py
+ExecStart=/usr/local/sbin/dyndns/do-dyndns.js $DO_API_TOKEN $OMAIN $DO_RECORDS

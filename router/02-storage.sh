@@ -10,4 +10,5 @@ cat <<EOF>> /etc/fstab
 UUID=$DISK /mnt/well btrfs defaults 0 0
 EOF
 
+systemctl daemon-reload
 mount -av

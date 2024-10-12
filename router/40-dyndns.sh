@@ -2,7 +2,9 @@
 
 source /usr/local/sbin/configs/.env
 
-git clone https://github.com/elforesto/digitalocean-dyndns.git /usr/local/sbin/dyndns 
+dnf install -y nodejs
+
+git clone https://github.com/dapope1979/do-dyndns.git /usr/local/sbin/dyndns 
 
 cp conf/dyndns/config.py /usr/local/sbin/dyndns/config.py
 cp conf/dyndns/dyndns.* /etc/systemd/system

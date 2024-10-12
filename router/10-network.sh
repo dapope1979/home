@@ -5,8 +5,8 @@ printf "\nConfiguring Network...\n"
 # configure network
 # create bond and add slaves
 nmcli con add type bond ifname bond0 bond.options "mode=802.3ad,miimon=100"
-nmcli con add type ethernet ifname enp8s0f0 master mybond0
-nmcli con add type ethernet ifname enp8s0f1 master mybond0
+nmcli con add type ethernet ifname enp8s0f0 master bond0
+nmcli con add type ethernet ifname enp8s0f1 master bond0
 # activate slaves, bond will auto activate
 nmcli con up bond-slave-enp8s0f0
 nmcli con up bond-slave-enp8s0f1
@@ -21,9 +21,10 @@ nmcli connection add type bridge con-name bridge0 ifname bridge0
 nmcli connection add type ethernet slave-type bridge con-name bridge0-port1 ifname enp7s0f0 master bridge0
 nmcli connection add type ethernet slave-type bridge con-name bridge0-port2 ifname enp7s0f1 master bridge0
 nmcli connection add type ethernet slave-type bridge con-name bridge0-port3 ifname enp0s31f6 master bridge0
-nmcli c m bridge0 autoconnect no
 
 # set static ip
+nmcli connection modify bridge0 autoconnect no
+nmcli connection modify bridge0 ipv4.method manual
 nmcli connection modify bridge0 ipv4.addresses '10.9.8.1/24'
 
 #bring up bridge
