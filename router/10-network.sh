@@ -4,18 +4,18 @@ source /usr/local/sbin/configs/.env
 printf "\nConfiguring Network...\n"
 # configure network
 # create bond and add slaves
-nmcli con add type bond ifname bond0 bond.options "mode=802.3ad,miimon=100"
-nmcli con add type ethernet ifname enp8s0f0 master bond0
-nmcli con add type ethernet ifname enp8s0f1 master bond0
+nmcli connection add type bond ifname bond0 bond.options "mode=802.3ad,miimon=100"
+nmcli connection add type ethernet ifname enp8s0f0 master bond0
+nmcli connection add type ethernet ifname enp8s0f1 master bond0
 # activate slaves, bond will auto activate
-nmcli con up bond-slave-enp8s0f0
-nmcli con up bond-slave-enp8s0f1
+nmcli connection up bond-slave-enp8s0f0
+nmcli connection up bond-slave-enp8s0f1
 
 # no auto connect for bridged interfaces
 # physical interface names may change w/ different hardware configurations
-nmcli c m enp7s0f0 autoconnect no
-nmcli c m enp7s0f1 autoconnect no
-nmcli c m enp0s31f6 autoconnect no
+nmcli connection modify enp7s0f0 autoconnect no
+nmcli connection modify enp7s0f1 autoconnect no
+nmcli connection modify enp0s31f6 autoconnect no
 # create the bridge
 nmcli connection add type bridge con-name bridge0 ifname bridge0
 nmcli connection add type ethernet slave-type bridge con-name bridge0-port1 ifname enp7s0f0 master bridge0

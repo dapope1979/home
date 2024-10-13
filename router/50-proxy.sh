@@ -14,4 +14,4 @@ setsebool -P httpd_can_network_connect on
 
 systemctl enable --now nginx.service
 
-certbot -v -a dns-digitalocean -i nginx --dns-digitalocean-credentials "/usr/loca/sbin/configs/.env" -d '*.$DOMAIN'
+certbot -v -a dns-digitalocean -i nginx --dns-digitalocean-credentials "/usr/local/sbin/configs/do.env" -d '*.$DOMAIN'
