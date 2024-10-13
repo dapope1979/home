@@ -8,7 +8,7 @@ rm /etc/nginx/nginx.conf
 envsubst '$DOMAIN' < conf/nginx.conf > /etc/nginx/nginx.conf
 
 rm /etc/cockpit/cockpit.conf
-cp conf/cockpit.conf /etc/cockpit/cockpit.conf
+envsubst '$DOMAIN' < conf/cockpit.conf > /etc/cockpit/cockpit.conf
 
 setsebool -P httpd_can_network_connect on
 
